@@ -7,8 +7,8 @@ mongoose = require('mongoose')
 
 connection = mongoose.connection 
 
-connection.on 'error', ->
-    console.error 'DB connection error'
+connection.on 'error', (err) ->
+    console.error 'DB connection error', err
 .once 'open', ->
     console.log 'DB open'
 
