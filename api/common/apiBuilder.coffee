@@ -17,18 +17,16 @@ module.exports = (modelType, mapper) ->
         
     router.route("/#{modelType}/:id")
         .get (req, res) ->
-            Repo.find ((err, model) ->
+            Repo.findById req.params.id, (err, model) ->
                 res.send(err || model)
-            ), req.params.id
         .put (req, res) ->
-            Repo.find ((err, model) ->
+            Repo.findById req.params.id, (err, model) ->
                 if err
                     res.send err
                 else
                     model = mapper(modelType).toModel(req.body, model)
                     model.save (err, model) ->
                         res.send(err || model)
-            ), req.params.id
         .delete (req,res) ->
             Repo.remove { 
                 _id: req.params.id 

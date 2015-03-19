@@ -28,17 +28,7 @@ factory = (name) ->
     assert proto
         
     schema = new Schema proto
-    Repository = mongoose.model(name, schema)
-    
-    #api tweak
-    Repository.find = do (find = Repository.find, findById = Repository.findById) ->
-        (callback, id) ->
-            if id? 
-                findById.call(this, id, callback)
-            else 
-                find.call(this, callback)
-    
-    return Repository 
+    return Repository = mongoose.model(name, schema)
     
 factory.register = (name, proto) ->
     _proto[name] = proto 

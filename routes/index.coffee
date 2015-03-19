@@ -1,3 +1,7 @@
-#GET home page.
 exports.index = (req, res) ->
-  res.render('index', { title: 'Express' })
+  res.locals.css = (url) -> "<link rel='stylesheet' href='#{url}' type='text/css'/>"
+  res.locals.js = (url) -> "<script src='#{url}'></script>"
+  res.render 'index', {
+    title: 'Bears app'
+    appName: 'bears'
+  }

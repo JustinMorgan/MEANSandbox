@@ -1,23 +1,30 @@
 require 'coffee-script/register'
-
-express = require "express"
 bodyParser = require "body-parser"
-port = process.env.PORT
-app = express()
+express = require "express"
+app = module.exports = express()
 
-app.set 'view engine', 'jade'
-app.set 'views', './views'
+for key, val of require "./env.config"
+    app.set key, val
+
 app.use bodyParser.json()
 app.use bodyParser.urlencoded {extended:true}
 
 app.use (err, req, res, next) ->
-    console.warn 'error', {err:err, req:req, res:res}
+    if err? then console.warn 'error', {err, req, res}
     next()
 
-app.get '/', (req, res) ->
-    res.render 'index', {title:'express'}
-
 app.use '/api', require "./api"
+app.use '/assets', require "./assets"
+routes = require "./routes"
+ 
+app.use express.static __dirname + '/public/'
 
+app.set 'view engine', 'jade'
+app.set 'views', './views'
+app.get '/', routes.index
+app.get '/partials/:name', (req, res) ->
+    res.render "partials/" + req.params.name
+
+port = process.env.PORT
 app.listen port
-console.log "Listening on port #{port}"
+console.log "Listening on port " + port
