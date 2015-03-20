@@ -1,10 +1,10 @@
 form(ng-submit='save()' role='form')
   ul
     li
-      id id
+      id(ng-show='bear._id') id
       name name
     li 
-      id(title='{{bear._id}}') {{bear._id | ending}}
+      id(title='{{bear._id}}' ng-show='bear._id') {{bear._id | ending}}
       name: input(ng-model='bear.name') 
   a(ui-sref="list") cancel 
   a(ng-click="save()") save  
