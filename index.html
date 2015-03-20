@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>MEAN-Sandbox by JustinMorgan</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>MEAN-Sandbox</h1>
+        <h2>Playground for the MEAN stack.</h2>
+        <a href="https://github.com/JustinMorgan/MeanSandbox" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="meansandbox" class="anchor" href="#meansandbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>MeanSandbox</h1>
+
+<p>This is a playground project to experiment with Node.js and the MEAN stack. I'll be experimenting with implementation,
+code organization, design patterns, and best practices in various aspects of Node development:</p>
+
+<ul>
+<li>REST API</li>
+<li>Developing in CoffeeScript 
+
+<ul>
+<li>On-the-fly parsing (not compiling to JS first)</li>
+<li>Performance when server code isn't precompiled</li>
+<li>Performance when client scripts aren't precompiled</li>
+</ul>
+</li>
+<li>MongoDB and Mongoose
+
+<ul>
+<li>Optimal lifecycle for connections and repositories</li>
+</ul>
+</li>
+<li>Unit testing
+
+<ul>
+<li>Server-side</li>
+<li>Client-side</li>
+<li>Angular controllers</li>
+</ul>
+</li>
+<li>Authentication</li>
+<li>Cloud-based development
+
+<ul>
+<li>Cloud-based IDE</li>
+<li>Cloud hosting for app and DB</li>
+<li>CDNs</li>
+</ul>
+</li>
+<li>Jade view templates</li>
+<li>SASS, LESS, and/or Stylus</li>
+<li>Automation and package management
+
+<ul>
+<li>Building </li>
+<li>Installing </li>
+<li>Client-side dependency management</li>
+<li>Bower, Yeoman, Grunt, Browserify, etc.</li>
+</ul>
+</li>
+<li>Code generation (generate API, client, and templates based on a given schema)</li>
+</ul>
+
+<p>Note that this is an experimental project, and very much a work in progress. It needs refactoring, bug fixes, and more automation. All these things are high priority and likely to improve soon. <strong>Comments, suggestions, and pull requests are welcome.</strong></p>
+
+<h1>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h1>
+
+<p>Note: Not tested recently; beware of missing dependencies. This will be much more automated soon.</p>
+
+<ol>
+<li>
+<p>Pull the repo onto your filesystem and run the following:</p>
+
+<pre><code>npm install -g coffee-script
+npm install
+</code></pre>
+</li>
+<li>
+<p>Create <code>/api/config/connection.json</code>. It should look like this:</p>
+
+<pre><code>{
+    "mongoUrl":"&lt;your.mongoDb.connection.string&gt;"
+}
+</code></pre>
+</li>
+<li>Examine the "known issues" section below.</li>
+</ol>
+
+<h1>
+<a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known issues</h1>
+
+<ol>
+<li><p>If you're going to use BundleUp to render coffee and sass files, see my pull request on the BundleUp project: <a href="https://github.com/Cowboy-coder/bundle-up/pull/40">https://github.com/Cowboy-coder/bundle-up/pull/40</a>. <code>app.locals</code> is no longer a function in Express 4, so BundleUp breaks. The PR resolves this.</p></li>
+<li>
+<p>I prefer the .sass coding style, but I can't find a single NPM package that supports rendering .sass files, only .scss. The plain <code>sass</code> NPM package supports doing it from the command line, but I can't get it to work inside the server. Current best workaround is to save the .sass file, then do one of the following from the command line:</p>
+
+<pre><code>sass assets/stylesheets/style.sass public/stylesheets/style.css 
+</code></pre>
+
+<p>or</p>
+
+<pre><code>sass-convert assets/stylesheets/style.sass assets/stylesheets/style.scss  
+</code></pre>
+
+<p>I plan to either 
+a) figure out how to do this on the fly, 
+b) automate the conversion (e.g. on saving a .sass file), or 
+c) switch over to Stylus. 
+Leaning heavily toward c).</p>
+</li>
+<li><p>Production mode is only partially set up and probably won't work as-is. At the very least, paths and routes will need to change, and BundleUp will need to be reconfigured.</p></li>
+</ol>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/JustinMorgan/MeanSandbox/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/JustinMorgan/MeanSandbox/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/JustinMorgan/MeanSandbox"></a> is maintained by <a href="https://github.com/JustinMorgan">JustinMorgan</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
