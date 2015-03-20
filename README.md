@@ -2,7 +2,10 @@
 This is a playground project to experiment with Node.js and the MEAN stack. I'll be experimenting with implementation,
 code organization, design patterns, and best practices in various aspects of Node development:
 - REST API
-- Direct parsing of CoffeScript (not compiling to JS first)
+- Developing in CoffeScript 
+  - On-the-fly parsing (not compiling to JS first)
+  - Performance when server code isn't precompiled
+  - Performance when client scripts aren't precompiled
 - MongoDB and Mongoose
   - Optimal lifecycle for connections and repositories
 - Unit testing
@@ -13,6 +16,7 @@ code organization, design patterns, and best practices in various aspects of Nod
 - Cloud-based development
   - Cloud-based IDE
   - Cloud hosting for app and DB
+  - CDNs
 - Jade view templates
 - SASS, LESS, and/or Stylus
 - Automation and package management
