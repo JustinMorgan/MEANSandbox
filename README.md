@@ -47,15 +47,7 @@ Note: Not tested recently; beware of missing dependencies. This will be much mor
 3. Examine the "known issues" section below.
 
 #Known issues
-1. If you're going to use BundleUp to render coffee and sass files, look for a reference to `@app.locals` in `/node_modules/bundle-up/lib/bundle_up.coffee`. `app.locals` is no longer a function in Express 4, so change it to this:
-
-    ```
-    @app.locals.renderStyles = (namespace=@css.defaultNamespace) =>
-        return @css.render(namespace)
-    @app.locals.renderJs = (namespace=@js.defaultNamespace) =>
-        return @js.render(namespace)
-    ```    
-I will be submitting an issue and PR to the main BundleUp project about this.
+1. If you're going to use BundleUp to render coffee and sass files, see my pull request on the BundleUp project: https://github.com/Cowboy-coder/bundle-up/pull/40. `app.locals` is no longer a function in Express 4, so BundleUp breaks. The PR resolves this.
     
 2. I prefer the .sass coding style, but I can't find a single NPM package that supports rendering .sass files, only .scss. The plain `sass` NPM package supports doing it from the command line, but I can't get it to work inside the server. Current best workaround is to save the .sass file, then do one of the following from the command line:
 
