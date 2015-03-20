@@ -4,7 +4,7 @@ form(ng-submit='save()' role='form')
       id id
       name name
     li 
-      id {{bear._id}}
+      id(title='{{bear._id}}') {{bear._id | ending}}
       name: input(ng-model='bear.name') 
-  a(ui-sref="list") back 
-  input(type='submit' value='submit') 
+  a(ui-sref="list") cancel 
+  a(ng-click="save()") save  

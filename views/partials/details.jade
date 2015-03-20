@@ -3,7 +3,8 @@ ul
     id id
     name name
   li 
-    id {{bear._id}}
-    name {{bear.name}}
+    id(title='{{bear._id}}') {{bear._id | ending}}
+    name {{bear.name}} 
+    a(ui-sref='update({id: bear._id})') edit 
     
 a(ui-sref="list") back

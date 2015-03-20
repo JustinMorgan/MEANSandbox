@@ -3,10 +3,9 @@ ul
     id id
     name name
   li(ng-repeat='bear in bears')
-    id {{bear._id}} 
+    id(title='{{bear._id}}') {{bear._id | ending}} 
     name {{bear.name}} 
-    a(ui-sref='view({id: bear._id})') details 
-    a(ui-sref='update({id: bear._id})') edit 
+    a(ui-sref='view({id: bear._id})') view 
     a(ng-click='delete(bear)') delete 
     
 a(ui-sref='create') new bear

@@ -1,8 +1,10 @@
 angular.module 'bears.services', ['ui.router', 'ngResource']
-angular.module 'bears', ['bears.services']
+angular.module 'bears.directives', []
+angular.module 'bears.filters', []
+angular.module 'bears', ['bears.filters', 'bears.directives', 'bears.services']
   .config ['$stateProvider', '$urlRouterProvider', '$locationProvider',
   ($stateProvider, $urlRouterProvider, $locationProvider) ->
-    #$locationProvider.html5Mode on
+    $locationProvider.html5Mode on
     
     $urlRouterProvider.otherwise '/'
     
@@ -21,9 +23,5 @@ angular.module 'bears', ['bears.services']
     .state "create", 
       url: '/create'
       controller: 'create'
-      templateUrl: 'partials/edit'
-    .state "delete", 
-      url: '/:id/edit'
-      controller: 'delete'
       templateUrl: 'partials/edit'
   ]

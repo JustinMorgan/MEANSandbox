@@ -32,7 +32,7 @@ app.set 'views', './views'
 app.get '/partials/:name', (req, res) ->
     res.render "partials/" + req.params.name
     
-app.get '/', require("./routes").index
+app.get '*', require("./routes").index
 
 port = process.env.PORT
 app.listen port

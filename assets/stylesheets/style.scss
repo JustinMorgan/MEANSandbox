@@ -1,0 +1,46 @@
+$blue: #00B7FF;
+$fontsize: 14px;
+
+@mixin link {
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  color: $blue;
+  cursor: pointer;
+  font-size: $fontsize !important;
+}
+
+body {
+  padding: 50px;
+  font: $fontsize "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: $blue;
+}
+
+[ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+[ng-app="bears"] {
+  ul {
+    display: table;
+  }
+  li {
+    display: table-row;
+    id, name, a {
+      display: table-cell;
+      padding-right: 5px;
+    }
+    &:first-child {
+      id, name {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+  }
+  a, [type="submit"] {
+    @include link;
+  }
+}
