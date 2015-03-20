@@ -41,7 +41,7 @@ Note: Not tested recently; beware of missing dependencies. This will be much mor
 
     ```
     {
-        "mongoUrl":"<your.mongoDb.connection.string>"
+        "mongoUrl":"<%your.mongoDb.connection.string%>"
     }
     ```
 3. Examine the "known issues" section below.
