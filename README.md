@@ -2,7 +2,7 @@
 This is a playground project to experiment with Node.js and the MEAN stack. I'll be experimenting with implementation,
 code organization, design patterns, and best practices in various aspects of Node development:
 - REST API
-- Developing in CoffeScript 
+- Developing in CoffeeScript 
   - On-the-fly parsing (not compiling to JS first)
   - Performance when server code isn't precompiled
   - Performance when client scripts aren't precompiled
