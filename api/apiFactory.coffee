@@ -1,34 +1,36 @@
-express = require("express")
-repoBuilder = require("./repository")
+express = require "express"
+Repository = require "./repository"
+Map = require("../common/mapper")
 
-module.exports = (modelType, mapper) ->
+module.exports = (name, schema) ->
     router = express.Router()
-    Repo = repoBuilder modelType
+    Model = new Repository name, schema
+    map = new Map schema
     
-    router.route("/#{modelType}")
+    router.route("/#{name}")
         .post (req, res) ->
-            model = new Repo()
-            model = mapper(modelType).toModel(req.body, model)
+            model = new Model()
+            model = map(req.body).to(model)
             model.save (err, model) ->
                 res.send(err || model)
         .get (req, res) ->
-            Repo.find (err, list) ->
+            Model.find (err, list) ->
                 res.send(err || list)
         
-    router.route("/#{modelType}/:id")
+    router.route("/#{name}/:id")
         .get (req, res) ->
-            Repo.findById req.params.id, (err, model) ->
+            Model.findById req.params.id, (err, model) ->
                 res.send(err || model)
         .put (req, res) ->
-            Repo.findById req.params.id, (err, model) ->
+            Model.findById req.params.id, (err, model) ->
                 if err
                     res.send err
                 else
-                    model = mapper(modelType).toModel(req.body, model)
+                    model = map(req.body).to(model)
                     model.save (err, model) ->
                         res.send(err || model)
         .delete (req, res) ->
-            Repo.remove { 
+            Model.remove { 
                 _id: req.params.id 
                 }, (err) ->
                     res.send(err || {message: "deleted"})

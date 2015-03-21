@@ -1,10 +1,11 @@
 require 'coffee-script/register'
 bodyParser = require "body-parser"
 express = require "express"
-app = module.exports = express()
+app = express()
 
-for key, val of require "./env.config"
-    app.set key, val
+config = require "./config"
+app.set "env", config.env
+process.env.MONGOLAB_URI = config.mongoUrl
 
 app.use bodyParser.json()
 app.use bodyParser.urlencoded {extended:true}
@@ -13,11 +14,10 @@ app.use (err, req, res, next) ->
     if err? then console.warn 'error', {err, req, res}
     next()
     
-app.use(require("connect-assets")({
-    paths: ["assets/apps", "assets/stylesheets"]
-}))
-
 app.use '/api', require "./api"
+app.use require("connect-assets") {
+    paths: ["assets/apps", "assets/stylesheets"]
+}
     
 app.use express.static __dirname + '/public/'
 
@@ -32,3 +32,4 @@ app.get '*', require("./routes").index
 port = process.env.PORT
 app.listen port
 console.log "Listening on port " + port
+module.exports = app

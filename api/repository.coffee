@@ -2,10 +2,9 @@
 connections be opened/closed for each repo call or persist for the
 life of the module?###
 
-assert = require("assert") 
-mongoose = require('mongoose') 
-
+mongoose = require "mongoose" 
 connection = mongoose.connection 
+mongoose.connect process.env.MONGOLAB_URI
 
 connection.on 'error', (err) ->
     console.error 'DB connection error', err
@@ -21,25 +20,9 @@ process.on('SIGINT', gracefulExit)
        .on('SIGTERM', gracefulExit)
 
 Schema = mongoose.Schema 
-_proto = {} 
 
-factory = (name) ->
-    proto = _proto[name] 
-    assert proto
-        
+factory = (name, proto) ->
     schema = new Schema proto
     return Repository = mongoose.model(name, schema)
-    
-factory.register = (name, proto) ->
-    _proto[name] = proto 
-    factory 
-    
-factory.configure = (callback) ->
-    callback factory
-    factory 
-    
-factory.connect = (mongoUrl) ->
-    mongoose.connect mongoUrl
-    factory
 
 module.exports = factory 
