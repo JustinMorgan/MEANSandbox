@@ -1,1 +1,4 @@
-module.exports = require "#{__dirname}/render-assets.#{process.env.NODE_ENV}"
+express = require "express"
+app = express()
+router = module.exports = express.Router()
+

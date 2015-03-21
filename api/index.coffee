@@ -1,4 +1,2 @@
 config = require "./config"
-router = require "./routes"
-
-module.exports = router
+module.exports = require "./routes"

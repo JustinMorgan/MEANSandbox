@@ -1,7 +1,7 @@
-$blue: #00B7FF
-$fontsize: 14px 
+$blue = #00b7ff
+$fontsize = 14px
 
-@mixin link
+link()
   text-decoration: none
   background-color: transparent
   border: none
@@ -9,28 +9,27 @@ $fontsize: 14px
   cursor: pointer
   font-size: $fontsize !important
 
-body 
+body
   padding: 50px
   font: $fontsize "Lucida Grande", Helvetica, Arial, sans-serif
 
-a 
+a
   color: $blue
 
-[ng-cloak], .ng-cloak 
+[ng-cloak], .ng-cloak
   display: none !important
 
 [ng-app="bears"]
   ul
     display: table
-  li 
+  li
     display: table-row
-    id, name, a 
+    id, name, a
       display: table-cell
       padding-right: 5px
     &:first-child
-      id, name 
+      id, name
         text-transform: uppercase
         font-weight: bold
-      
   a, [type="submit"]
-    @include link
+    link()

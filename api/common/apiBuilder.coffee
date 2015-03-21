@@ -27,7 +27,7 @@ module.exports = (modelType, mapper) ->
                     model = mapper(modelType).toModel(req.body, model)
                     model.save (err, model) ->
                         res.send(err || model)
-        .delete (req,res) ->
+        .delete (req, res) ->
             Repo.remove { 
                 _id: req.params.id 
                 }, (err) ->

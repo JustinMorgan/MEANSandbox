@@ -6,13 +6,11 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "^1.12.0",
-    "bundle-up": "^0.3.5",
-    "coffee-middleware": "^0.2.1",
-    "express": "~4.0.0",
+    "body-parser": "^1.12.2",
+    "connect-assets": "^4.6.0",
+    "express": "^4.0.0",
     "jade": "*",
     "mongoose": "^3.8.25",
-    "node-sass": "^3.0.0-alpha.0",
-    "node-sass-middleware": "^0.5.0"
+    "stylus": "^0.50.0"
   }
 }
