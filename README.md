@@ -2,8 +2,12 @@
 This is a playground project to experiment with Node.js and the MEAN stack. I'll be experimenting with implementation,
 code organization, design patterns, and best practices in various aspects of Node development:
 - REST API
+- Jade view templates
+- SASS, LESS, and/or Stylus
+- Authentication
+- Code generation (generate API, client, and templates based on given schema(s))
 - Developing in CoffeeScript 
-  - On-the-fly parsing (not compiling to JS first)
+  - On-the-fly parsing (not precompiling to JS)
   - Performance when server code isn't precompiled
   - Performance when client scripts aren't precompiled
 - MongoDB and Mongoose
@@ -12,19 +16,15 @@ code organization, design patterns, and best practices in various aspects of Nod
   - Server-side
   - Client-side
   - Angular controllers
-- Authentication
 - Cloud-based development
   - Cloud-based IDE
   - Cloud hosting for app and DB
   - CDNs
-- Jade view templates
-- SASS, LESS, and/or Stylus
 - Automation and package management
   - Building 
   - Installing 
   - Client-side dependency management
   - Bower, Yeoman, Grunt, Browserify, etc.
-- Code generation (generate API, client, and templates based on a given schema)
 
 Note that this is an experimental project, and very much a work in progress. It needs refactoring, bug fixes, and more automation. All these things are high priority and likely to improve soon. **Comments, suggestions, and pull requests are welcome.**
 
