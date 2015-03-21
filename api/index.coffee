@@ -12,7 +12,7 @@ router.route('/ping/:id')
         res.json {ping: "PONG #{req.params.id}"}
 
 schemas = require "../common/schema"
-Api = require "./apiFactory"
+Api = require "./api-factory"
 
 for name, schema of schemas
   router.use new Api(name, schema)
