@@ -1,10 +1,11 @@
 form(ng-submit='save()' role='form')
   ul
+    //- TODO: Dynamically generate table columns
     li
-      id(ng-show='bear._id') id
+      id(ng-show='item._id') id
       name name
     li 
-      id(title='{{bear._id}}' ng-show='bear._id') {{bear._id | ending}}
-      name: input(ng-model='bear.name') 
+      id(title='{{item._id}}' ng-show='item._id') {{item._id | ending}}
+      name: input(ng-model='item.name' autofocus ng-required) 
   a(ui-sref="list") cancel 
   a(ng-click="save()") save  

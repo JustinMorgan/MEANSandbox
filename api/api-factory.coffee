@@ -1,6 +1,6 @@
 express = require "express"
 Repository = require "./repository"
-Map = require("../common/mapper")
+Map = require("./mapper")
 
 module.exports = (name, schema) ->
     router = express.Router()

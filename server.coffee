@@ -27,8 +27,6 @@ app.set 'views', './views'
 app.get '/:appName', require("./routes").index
 app.get '/partials/:name', (req, res) ->
     res.render "partials/" + req.params.name
-app.get '/dynamic/:name', (req, res) ->
-    res.render "dynamic/" + req.params.name
     
 app.get '*', (req, res) -> res.redirect '/bears'
 

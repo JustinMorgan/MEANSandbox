@@ -1,11 +1,15 @@
 ul
+  //- TODO: Dynamically generate table columns
   li
     id id
     name name
-  li(ng-repeat='bear in bears')
-    id(title='{{bear._id}}') {{bear._id | ending}} 
-    name {{bear.name}} 
-    a(ui-sref='view({id: bear._id})') view 
-    a(ng-click='delete(bear)') delete 
+  li(ng-repeat='item in items')
+    id(title='{{item._id}}') {{item._id | ending}} 
+    name {{item.name}} 
+    a(ui-sref="view({id: item._id})") view 
+    a(ng-click='delete(item)') delete 
     
-a(ui-sref='create') new bear
+a(ui-sref="create") add new 
+
+//- todo:    
+//- a(ui-sref='create') new #{model.singular}

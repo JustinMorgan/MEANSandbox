@@ -16,22 +16,24 @@ angular.module 'dynamic', ['dynamic.filters', 'dynamic.directives', 'dynamic.ser
       abstract: yes
       template: '<ui-view/>'
       resolve:
-        appName: ($stateParams) -> $stateParams.appName
-        Item: (ApiResource, appName) ->
-          return ApiResource appName 
+        appName: ['$stateParams', ($stateParams) -> $stateParams.appName]
+        Item: ['ApiResource', 'appName', (ApiResource, appName) -> ApiResource appName]
+        goHome: ['$state', 'appName', ($state, appName) -> 
+          -> 
+            $state.go 'list', {appName}
+        ]
     .state "list", 
       controller: 'list'
       parent: 'base'
       url: ''
-      templateUrl: 'dynamic/list'
+      templateUrl: 'partials/list'
       resolve: 
-        items: (Item) ->
-          return Item.query().$promise
+        items: ['Item', (Item) -> Item.query().$promise]
     .state "create", 
       controller: 'create'
       parent: 'base'
       url: '/create'
-      templateUrl: 'dynamic/edit'
+      templateUrl: 'partials/edit'
     .state "single",
       controller: 'single'
       parent: 'base'
@@ -39,19 +41,20 @@ angular.module 'dynamic', ['dynamic.filters', 'dynamic.directives', 'dynamic.ser
       abstract: yes
       template: '<ui-view/>'
       resolve:
-        item: (Item, appName, $stateParams, $state) ->
-          id = $stateParams.id
-          Item.get({id}).$promise
+        item: ['Item', '$stateParams', (Item, $stateParams) ->
+            id = $stateParams.id
+            Item.get({id}).$promise
+        ]
     .state "view", 
       controller: 'view'
       parent: 'single'
       url: ''
-      templateUrl: 'dynamic/details'
+      templateUrl: 'partials/details'
     .state "update", 
       controller: 'update'
       parent: 'single'
       url: '/edit'
-      templateUrl: 'dynamic/edit'
+      templateUrl: 'partials/edit'
   ]
   .run ['$rootScope', ($rootScope) ->
         $rootScope.$on '$stateChangeSuccess', (ev, to, toParams, from) ->

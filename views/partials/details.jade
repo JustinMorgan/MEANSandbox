@@ -1,10 +1,11 @@
 ul
+  //- TODO: Dynamically generate table columns
   li
     id id
     name name
   li 
-    id(title='{{bear._id}}') {{bear._id | ending}}
-    name {{bear.name}} 
-    a(ui-sref='update({id: bear._id})') edit 
+    id(title='{{item._id}}') {{item._id | ending}}
+    name {{item.name}} 
+    a(ui-sref="update({id: item._id})") edit 
     
 a(ui-sref="list") back
