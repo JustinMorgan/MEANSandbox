@@ -1,0 +1,15 @@
+ul
+  //- TODO: Dynamically generate table columns
+  li
+    id id
+    name name
+  li(ng-repeat='item in items')
+    id(title='{{item._id}}') {{item._id | ending}} 
+    name {{item.name}} 
+    a(ui-sref="view({appName: appName, id: item._id})") view 
+    a(ng-click='delete(item)') delete 
+    
+a(ui-sref="create({appName: appName})") add new 
+
+//- todo:    
+//- a(ui-sref='create') new #{model.singular}

@@ -1,6 +1,6 @@
 angular.module 'bears.services'
-  .factory 'Api', ['$resource', ($resource) ->
-    $resource '/api/:appName/:id', {id: '@_id', appName: '=appName'}, 
+  .factory 'Bear', ['$resource', ($resource) ->
+    $resource '/api/bears/:id', {id: '@_id'}, 
       update: 
         method: 'PUT'
       delete:

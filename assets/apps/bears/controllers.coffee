@@ -1,21 +1,23 @@
 angular.module 'bears'
-  .controller 'list', ['$state', '$scope', 'Api', ($state, $scope, Api) ->
-    $scope.bears = Api.query {appName:'bear'}
+  .controller 'list', ['$state', '$scope', 'Bear', ($state, $scope, Bear) ->
+    $scope.bears = Bear.query()
+    $scope.state = $state
     $scope.delete = (bear) ->
-      bear.$delete {appName:'bear'}, -> 
+      bear.$delete -> 
         $state.reload()
   ]
-  .controller 'single', ['$state', '$scope', 'Api', ($state, $scope, Api) ->
-    $scope.bear = Api.get {id: $state.params.id, appName: 'bear'}
+  .controller 'single', ['$state', '$scope', 'Bear', ($state, $scope, Bear) ->
+    $scope.bear = Bear.get {id: $state.params.id}
+    $scope.state = $state
     $scope.save = ->
-      $scope.bear.$update {appName:'bear'}, ->
+      $scope.bear.$update ->
         $state.go 'list'
   ]
   .controller 'view', [->]
   .controller 'update', [->]
-  .controller 'create', ['$state', '$scope', 'Api', ($state, $scope, Api) ->
-    $scope.bear = new Api {appName:'bear'}
+  .controller 'create', ['$state', '$scope', 'Bear', ($state, $scope, Bear) ->
+    $scope.bear = new Bear()
     $scope.save = ->
-      $scope.bear.$save {appName:'bear'}, ->
+      $scope.bear.$save ->
         $state.go 'list'
   ]

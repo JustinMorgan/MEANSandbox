@@ -23,13 +23,16 @@ app.use express.static __dirname + '/public/'
 
 app.set 'view engine', 'jade'
 app.set 'views', './views'
-app.get '/', require("./routes").index
+#todo: dynamically route based on schema
+app.get '/:appName', require("./routes").index
 app.get '/partials/:name', (req, res) ->
     res.render "partials/" + req.params.name
+app.get '/dynamic/:name', (req, res) ->
+    res.render "dynamic/" + req.params.name
     
-app.get '*', require("./routes").index
+app.get '*', (req, res) -> res.redirect '/bears'
 
 port = process.env.PORT
 app.listen port
-console.log "Listening on port " + port
+console.log "app listening on port " + port
 module.exports = app

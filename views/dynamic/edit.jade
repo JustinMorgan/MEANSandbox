@@ -1,0 +1,11 @@
+form(ng-submit='save()' role='form')
+  ul
+    //- TODO: Dynamically generate table columns
+    li
+      id(ng-show='item._id') id
+      name name
+    li 
+      id(title='{{item._id}}' ng-show='item._id') {{item._id | ending}}
+      name: input(ng-model='item.name') 
+  a(ui-sref="list({appName:appName})") cancel 
+  a(ng-click="save()") save  

@@ -1,8 +1,9 @@
+#TODO: Change to a richer model (including attributes) and output schema based on that.
 module.exports = 
-  bear:
+  bears:
     name: String
-  car:
+  cars:
     model: String
-  person:
+  people:
     name: String
     birthday: Date
