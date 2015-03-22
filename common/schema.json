@@ -1,0 +1,24 @@
+{
+  "bears": [{
+      "fieldName": "name",
+      "dataType": "text",
+      "client-attributes": ["required"]
+    }],
+  "cars": [{
+      "fieldName": "model",
+      "dataType": "text"
+    }, {
+      "fieldName": "make",
+      "dataType": "text"
+    }, {
+      "fieldName": "year",
+      "dataType": "number"
+    }],
+  "people": [{
+        "fieldName": "name",
+        "dataType": "name"
+    }, {
+        "fieldName": "birthday",
+        "dataType": "date"
+    }]
+}

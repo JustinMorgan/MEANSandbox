@@ -1,14 +1,26 @@
 # MeanSandbox
-This is a playground project to explore Node.js and the MEAN stack. I'll be experimenting with implementation,
-code organization, design patterns, and best practices in various areas of Node development.
+This is a playground project to explore Node.js and the MEAN stack. It's an experimental project, and very much a work in progress. **Comments, suggestions, and pull requests welcome.**
+
+#Features
+##Dynamic REST API generation
+This is the most useful feature of the project. Given a connection string and a JSON schema list, the site will automagically wire up a REST back-end for each data type in the list.
+
+##Dynamic Angular front-end generation
+Using the same schema.json file as the API factory, the front end produces an Angular CRUD SPA for each data type.
+
+##CoffeeScript and Stylus bundling
+All server- and client-side scripts are written in CoffeeScript. All stylesheets are written in Stylus. In production mode, client-side (and possibly server-side) code will be precompiled, bundled together, and minified. In dev mode, client js/css is rendered on the fly.
+
+#Topics for exploration
+I'll be experimenting with implementation, code organization, design patterns, and best practices in various areas of Node development.
 - REST API
 - Jade view templates
 - SASS, LESS, and/or Stylus
 - Authentication
 - Code generation (generate API, client, and templates according to schema)
+- Angular model validation
 - Node development in CoffeeScript 
-  - Server-side, with and without precompilation
-  - Client-side, rendering as JS on the fly
+  - Rendering CoffeeScript assets as JS
   - Performance when not precompiled
 - MongoDB and Mongoose
   - Optimal lifecycle for connections and DB objects
@@ -21,8 +33,6 @@ code organization, design patterns, and best practices in various areas of Node 
   - Installing 
   - Client-side dependency management
   - Bower, Yeoman, Grunt, Browserify, etc.
-
-Note that this is an experimental project, and very much a work in progress. It's getting refactored, reorganized, and improved. **Comments, suggestions, and pull requests are welcome.**
 
 #Setup
 **Note: Not tested recently; beware of missing dependencies.** This will be more automated soon.
@@ -41,7 +51,8 @@ Note that this is an experimental project, and very much a work in progress. It'
         "mongoUrl": "mongodb://<user>:<password>@<server-url>/<database>"
     }
     ```
-3. Examine the "known issues" section below.
+3. Modify `<appRoot>/common/schema.json` to reflect your data structure.
+4. Take a look at the "known issues" section below.
 
 #Known issues
 1. ~~BundleUp is broken in Express 4.0.0, see my pull request on the BundleUp project: https://github.com/Cowboy-coder/bundle-up/pull/40.~~ **RESOLVED: Now using `connect-assets` for asset management.**
@@ -49,6 +60,9 @@ Note that this is an experimental project, and very much a work in progress. It'
 3. Production mode may require more configuration, especially for `connect-assets`.
 
 #Next steps
-1. Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.
-2. Automate installation.
-3. Unit testing.
+- [x] Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.
+- [ ] Dynamic Jade templates
+- [ ] Explore Bower and Browserify
+- [ ] Automate installation
+- [ ] Unit testing
+- [ ] Form validation

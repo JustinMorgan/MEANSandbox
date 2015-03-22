@@ -1,4 +1,4 @@
-form(ng-submit='save()' role='form')
+form(ng-submit='save()' role='form' name='editForm')
   ul
     //- TODO: Dynamically generate table columns
     li
@@ -6,6 +6,6 @@ form(ng-submit='save()' role='form')
       name name
     li 
       id(title='{{item._id}}' ng-show='item._id') {{item._id | ending}}
-      name: input(ng-model='item.name' autofocus ng-required) 
+      name: input(ng-model='item.name' autofocus) 
   a(ui-sref="list") cancel 
   a(ng-click="save()") save  

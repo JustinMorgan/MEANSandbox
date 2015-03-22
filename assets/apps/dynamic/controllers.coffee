@@ -8,9 +8,9 @@ angular.module 'dynamic'
         $state.reload()
   ]
   .controller 'create', ['$scope', 'Item', 'goHome', ($scope, Item, goHome) ->
-    item = $scope.item = new Item()
+    $scope.item = new Item()
     $scope.save = ->
-      item.$save goHome
+      $scope.item.$save goHome
   ]
   .controller 'single', ['$scope', 'item', ($scope, item) ->
     $scope.item = item

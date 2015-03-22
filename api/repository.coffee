@@ -21,8 +21,8 @@ process.on('SIGINT', gracefulExit)
 
 Schema = mongoose.Schema 
 
-factory = (name, proto) ->
-    schema = new Schema proto
-    return Repository = mongoose.model(name, schema)
+factory = (name, schema) ->
+    mongoStructure = new Schema schema
+    return Repository = mongoose.model(name, mongoStructure)
 
 module.exports = factory 

@@ -1,16 +1,17 @@
 express = require "express"
+router = express.Router()
 Repository = require "./repository"
-Map = require("./mapper")
+Mapper = require("./mapper")
 
-module.exports = (name, schema) ->
-    router = express.Router()
+module.exports = (name, fields) ->
+    mapper = new Mapper fields
+    schema = mapper.schema
     Model = new Repository name, schema
-    map = new Map schema
     
     router.route("/#{name}")
         .post (req, res) ->
             model = new Model()
-            map(req.body).to(model)
+            mapper.map(req.body).to(model)
             model.save (err, model) ->
                 res.send(err || model)
         .get (req, res) ->
@@ -26,7 +27,7 @@ module.exports = (name, schema) ->
                 if err
                     res.send err
                 else
-                    map(req.body).to(model)
+                    mapper.map(req.body).to(model)
                     model.save (err, model) ->
                         res.send(err || model)
         .delete (req, res) ->

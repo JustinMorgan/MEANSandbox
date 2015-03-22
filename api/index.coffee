@@ -11,10 +11,10 @@ router.route('/ping/:id')
     .get (req, res) ->
         res.json {ping: "PONG #{req.params.id}"}
 
-schemas = require "../common/schema"
+schema = require "../common/schema"
 Api = require "./api-factory"
 
-for name, schema of schemas
-  router.use new Api(name, schema)
+for name, fields of schema
+  router.use new Api(name, fields)
 
 module.exports = router
