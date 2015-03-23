@@ -5,3 +5,12 @@ angular.module 'dynamic.filters'
         input
       else
         prefix + input.substr(input.length - size + prefix.length)
+  .filter 'display', ->
+    (item, fieldName, displayType = 'singular') ->
+      if fieldName
+        item = item.fieldName
+        
+      if typeof item is 'string'
+        return item
+      else 
+        return item.display?[displayType] || item.name

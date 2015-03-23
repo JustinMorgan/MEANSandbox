@@ -1,5 +1,5 @@
 express = require "express"
-router = express.Router()
+module.exports = router = express.Router()
 
 router.get '/', (req, res) ->
     res.json { message: 'hello world!' }  
@@ -14,7 +14,5 @@ router.route('/ping/:id')
 schema = require "../common/schema"
 Api = require "./api-factory"
 
-for name, fields of schema
-  router.use new Api(name, fields)
-
-module.exports = router
+for name, type of schema
+  router.use new Api(name, type)

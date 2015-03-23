@@ -51,7 +51,7 @@ I'll be experimenting with implementation, code organization, design patterns, a
         "mongoUrl": "mongodb://<user>:<password>@<server-url>/<database>"
     }
     ```
-3. Modify `<appRoot>/common/schema.json` to reflect your data structure.
+3. Modify `schema.json` to reflect your data structure.
 4. Take a look at the "known issues" section below.
 
 #Known issues

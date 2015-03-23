@@ -1,6 +1,5 @@
 angular.module 'dynamic'
-  .controller 'base', [->
-  ]
+  .controller 'base', [->]
   .controller 'list', ['$scope', 'items', '$state', ($scope, items, $state) ->
     $scope.items = items
     $scope.delete = (item) ->
@@ -15,8 +14,7 @@ angular.module 'dynamic'
   .controller 'single', ['$scope', 'item', ($scope, item) ->
     $scope.item = item
   ]
-  .controller 'view', [->
-  ]
+  .controller 'view', [->]
   .controller 'update', ['$scope', 'item', 'goHome', ($scope, item, goHome) ->
     $scope.save = ->
       item.$update goHome

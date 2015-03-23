@@ -6,6 +6,7 @@ app = express()
 config = require "./config"
 app.set "env", config.env
 process.env.MONGOLAB_URI = config.mongoUrl
+port = config.port or process.env.PORT
 
 app.use bodyParser.json()
 app.use bodyParser.urlencoded {extended:true}
@@ -24,13 +25,12 @@ app.use express.static __dirname + '/public/'
 app.set 'view engine', 'jade'
 app.set 'views', './views'
 app.use '/', require './routes/route-factory'
-app.get '/partials/:name', (req, res) ->
-    res.render "partials/" + req.params.name
+#app.get '/partials/:name', (req, res) ->
+#    res.render "partials/" + req.params.name
     
 app.get '*', (req, res) -> res.redirect '/'
 #app.get '*', (req, res) -> res.redirect '/bears'
 
-port = process.env.PORT
 app.listen port
 console.log "app listening on port " + port
 module.exports = app

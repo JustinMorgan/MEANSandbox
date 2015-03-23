@@ -1,13 +1,13 @@
 $blue = #00b7ff
 $fontsize = 14px
 
-link()
+link(fontsize = $fontsize)
   text-decoration: none
   background-color: transparent
   border: none
   color: $blue
   cursor: pointer
-  font-size: $fontsize !important
+  font-size: fontsize !important
 
 body
   padding: 50px
@@ -24,12 +24,18 @@ a
     display: table
   li
     display: table-row
-    id, name, a
+    &>*
       display: table-cell
       padding-right: 5px
     &:first-child
-      id, name
-        text-transform: uppercase
-        font-weight: bold
+      text-transform: uppercase
+      font-weight: bold
   a, [type="submit"]
     link()
+    
+nav
+  a
+    link(18px)
+  li
+    display: inline-block
+    padding-right: 10px

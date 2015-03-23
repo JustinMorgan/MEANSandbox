@@ -1,24 +1,37 @@
 {
-  "bears": [{
-      "fieldName": "name",
+  "bears": {
+    "fields": [{
+      "name": "name",
       "dataType": "text",
-      "client-attributes": ["required"]
-    }],
-  "cars": [{
-      "fieldName": "model",
-      "dataType": "text"
-    }, {
-      "fieldName": "make",
-      "dataType": "text"
-    }, {
-      "fieldName": "year",
-      "dataType": "number"
-    }],
-  "people": [{
-        "fieldName": "name",
-        "dataType": "name"
-    }, {
-        "fieldName": "birthday",
-        "dataType": "date"
+      "clientAttributes": ["required"]
     }]
+  },
+  "cars": {
+    "fields": [{
+        "name": "model",
+        "dataType": "text"
+      }, {
+        "name": "make",
+        "dataType": "text"
+      }, {
+        "name": "year",
+        "dataType": "number"
+    }],
+    "display": {
+      "singular": "car"
+    }
+  },
+  "people": {
+    "fields": [{
+        "name": "name",
+        "dataType": "name"
+      }, {
+        "name": "birthday",
+        "dataType": "date"
+    }],
+    "display": {
+      "singular": "person",
+      "plural": "people"
+    }
+  }
 }

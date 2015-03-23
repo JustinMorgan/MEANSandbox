@@ -1,11 +1,12 @@
 form(ng-submit='save()' role='form' name='editForm')
   ul
-    //- TODO: Dynamically generate table columns
     li
       id(ng-show='item._id') id
-      name name
+      for field in type.fields
+        field.name= field.name
     li 
       id(title='{{item._id}}' ng-show='item._id') {{item._id | ending}}
-      name: input(ng-model='item.name' autofocus) 
+      each field, i in type.fields
+        field.name: input(ng-model='item.#{field.name}' field.clientAttributes autofocus=(i == 0))
   a(ui-sref="list") cancel 
   a(ng-click="save()") save  

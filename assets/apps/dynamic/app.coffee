@@ -26,14 +26,16 @@ angular.module 'dynamic', ['dynamic.filters', 'dynamic.directives', 'dynamic.ser
       controller: 'list'
       parent: 'base'
       url: ''
-      templateUrl: 'partials/list'
+      templateUrl:  ($stateParams) ->
+        $stateParams.appName + '/partials/list'
       resolve: 
         items: ['Item', (Item) -> Item.query().$promise]
     .state "create", 
       controller: 'create'
       parent: 'base'
       url: '/create'
-      templateUrl: 'partials/edit'
+      templateUrl:  ($stateParams) ->
+        $stateParams.appName + '/partials/edit'
     .state "single",
       controller: 'single'
       parent: 'base'
@@ -49,12 +51,14 @@ angular.module 'dynamic', ['dynamic.filters', 'dynamic.directives', 'dynamic.ser
       controller: 'view'
       parent: 'single'
       url: ''
-      templateUrl: 'partials/details'
+      templateUrl:  ($stateParams) ->
+        $stateParams.appName + '/partials/details'
     .state "update", 
       controller: 'update'
       parent: 'single'
       url: '/edit'
-      templateUrl: 'partials/edit'
+      templateUrl:  ($stateParams) ->
+        $stateParams.appName + '/partials/edit'
   ]
   .run ['$rootScope', ($rootScope) ->
         $rootScope.$on '$stateChangeSuccess', (ev, to, toParams, from) ->

@@ -3,8 +3,8 @@ router = express.Router()
 Repository = require "./repository"
 Mapper = require("./mapper")
 
-module.exports = (name, fields) ->
-    mapper = new Mapper fields
+module.exports = (name, type) ->
+    mapper = new Mapper type
     schema = mapper.schema
     Model = new Repository name, schema
     
