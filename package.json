@@ -9,7 +9,7 @@
     "coffee-script": "^1.4.28",
     "body-parser": "^1.12.2",
     "connect-assets": "^4.6.0",
-    "express": "^4.0.0",
+    "express": "^4.5.0",
     "jade": "*",
     "mongoose": "^3.8.25",
     "stylus": "^0.50.0"

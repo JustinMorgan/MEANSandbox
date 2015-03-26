@@ -8,10 +8,10 @@
   },
   "cars": {
     "fields": [{
-        "name": "model",
+        "name": "make",
         "dataType": "text"
       }, {
-        "name": "make",
+        "name": "model",
         "dataType": "text"
       }, {
         "name": "year",

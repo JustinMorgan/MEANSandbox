@@ -6,7 +6,7 @@ angular.module 'dynamic', ['dynamic.filters', 'dynamic.directives', 'dynamic.ser
   ($stateProvider, $urlRouterProvider, $locationProvider) ->
     $locationProvider.html5Mode on
     
-    #$urlRouterProvider.otherwise '/'
+    $urlRouterProvider.otherwise '/'
     
     #TODO: For some reason, http://foo.com/bar is fine, but http://foo.com/bar/ makes everything go haywire.
     #Either fix this, redirect to a default, or strip trailing slashes.
