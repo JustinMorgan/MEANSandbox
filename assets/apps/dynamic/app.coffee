@@ -17,25 +17,23 @@ angular.module 'dynamic', ['dynamic.filters', 'dynamic.directives', 'dynamic.ser
       template: '<ui-view/>'
       resolve:
         appName: ['$stateParams', ($stateParams) -> $stateParams.appName]
-        Item: ['ApiResource', 'appName', (ApiResource, appName) -> ApiResource appName]
-        goHome: ['$state', 'appName', ($state, appName) -> 
-          -> 
-            $state.go 'list', {appName}
-        ]
+        Item: ['ApiResource', 'appName', (ApiResource, appName) -> new ApiResource appName]
+        schema: ['Item', (Item) -> Item.schema().$promise]
+        
     .state "list", 
       controller: 'list'
       parent: 'base'
       url: ''
-      templateUrl:  ($stateParams) ->
-        $stateParams.appName + '/partials/list'
+      templateUrl: (appName) -> appName + '/partials/list'
       resolve: 
         items: ['Item', (Item) -> Item.query().$promise]
+        
     .state "create", 
       controller: 'create'
       parent: 'base'
       url: '/create'
-      templateUrl:  ($stateParams) ->
-        $stateParams.appName + '/partials/edit'
+      templateUrl: (appName) -> appName + '/partials/edit'
+        
     .state "single",
       controller: 'single'
       parent: 'base'
@@ -47,20 +45,22 @@ angular.module 'dynamic', ['dynamic.filters', 'dynamic.directives', 'dynamic.ser
             id = $stateParams.id
             Item.get({id}).$promise
         ]
+        
     .state "view", 
       controller: 'view'
       parent: 'single'
       url: ''
-      templateUrl:  ($stateParams) ->
-        $stateParams.appName + '/partials/details'
+      templateUrl: (appName) -> appName + '/partials/details'
+      
     .state "update", 
       controller: 'update'
       parent: 'single'
       url: '/edit'
-      templateUrl:  ($stateParams) ->
-        $stateParams.appName + '/partials/edit'
+      templateUrl: (appName) -> appName + '/partials/edit'
   ]
   .run ['$rootScope', ($rootScope) ->
-        $rootScope.$on '$stateChangeSuccess', (ev, to, toParams, from) ->
+        $rootScope.$on '$stateChangeStart', (event, toState, toParams, fromState, fromParams) ->
+            toParams.appName ?= fromParams.appName
             $rootScope.appName = toParams.appName
+            #todo: if changing apps, reload everything
   ]

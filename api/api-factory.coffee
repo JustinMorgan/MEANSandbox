@@ -1,5 +1,6 @@
 express = require "express"
 router = express.Router()
+#Note: Not really sure if the "Repository" term is correct here
 Repository = require "./repository"
 Mapper = require("./mapper")
 
@@ -18,7 +19,7 @@ module.exports = (name, type) ->
             Model.find (err, list) ->
                 res.send(err || list)
         
-    router.route("/#{name}/:id")
+    router.route("/#{name}/:id([0-9a-fA-F]{24})")
         .get (req, res) ->
             Model.findById req.params.id, (err, model) ->
                 res.send(err || model)
@@ -35,4 +36,9 @@ module.exports = (name, type) ->
                 _id: req.params.id 
                 }, (err) ->
                     res.send(err || {message: "deleted"})
-    router
+                
+    router.route("/#{name}/schema")
+        .get (req, res) ->
+            res.json type
+            
+    return router
