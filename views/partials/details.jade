@@ -1,12 +1,10 @@
 ul
   li
     id id
-    for field in type.fields
-      #{field.name}= field.name
+    div(ng-repeat="field in schema.fields") {{field.name}}
   li 
     id(title='{{item._id}}') {{item._id | ending}}
-    for field in type.fields
-      #{field.name} {{item.#{field.name}}}
+    div(ng-repeat="field in schema.fields") {{item[field.name]}}
     a(ui-sref="update({id: item._id})") edit 
     
 a(ui-sref="list") back

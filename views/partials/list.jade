@@ -1,15 +1,11 @@
 ul
   li
     id id
-    for field in type.fields
-      #{field.name}= field.name
+    div(ng-repeat="field in schema.fields") {{field.name}}
   li(ng-repeat='item in items')
     id(title='{{item._id}}') {{item._id | ending}} 
-    for field in type.fields
-      #{field.name} {{item.#{field.name}}}
+    div(ng-repeat="field in schema.fields") {{item[field.name]}}
     a(ui-sref="view({id: item._id})") view 
     a(ng-click='delete(item)') delete
     
-a(ui-sref='create') add new 
-  if type.display && type.display.singular
-    =type.display.singular
+a(ui-sref='create') add new {{((schema || {}).display || {}).singular || ''}}

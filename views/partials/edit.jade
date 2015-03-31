@@ -2,14 +2,11 @@ form(ng-submit='save()' role='form' name='editForm')
   ul
     li
       id(ng-show='item._id') id
-      for field in type.fields
-        #{field.name}= field.name
+      div(ng-repeat="field in schema.fields") {{field.name}}
     li 
       id(title='{{item._id}}' ng-show='item._id') {{item._id | ending}}
-      each field, i in type.fields
-        #{field.name}
-          //-todo: fix array attributes
-          input(ng-model='item.#{field.name}' autofocus=(i == 0))
+      div(ng-repeat="field in schema.fields")
+        input(ng-model="item[field.name]" type="{{field.dataType}}" annotate="edit")
   a(ui-sref="list") cancel 
   a(ng-click="save()") save 
 

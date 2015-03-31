@@ -3,7 +3,10 @@
     "fields": [{
       "name": "name",
       "dataType": "text",
-      "clientAttributes": ["required"]
+      "edit": {
+        "required": "required",
+        "placeholder": "name"
+      }
     }]
   },
   "cars": {

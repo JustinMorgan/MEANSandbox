@@ -61,7 +61,7 @@ I'll be experimenting with implementation, code organization, design patterns, a
 
 #Next steps
 - [x] Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.
-- [ ] Dynamic Jade templates
+- [x] Dynamic Jade templates
 - [ ] Explore Bower and Browserify
 - [ ] Automate installation
 - [ ] Unit testing
