@@ -31,8 +31,30 @@
           <h1>
 <a id="meansandbox" class="anchor" href="#meansandbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>MeanSandbox</h1>
 
-<p>This is a playground project to explore Node.js and the MEAN stack. I'll be experimenting with implementation,
-code organization, design patterns, and best practices in various areas of Node development.</p>
+<p>This is a playground project to explore Node.js and the MEAN stack. It's an experimental project, and very much a work in progress. <strong>Comments, suggestions, and pull requests welcome.</strong></p>
+
+<h1>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h1>
+
+<h2>
+<a id="dynamic-rest-api-generation" class="anchor" href="#dynamic-rest-api-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamic REST API generation</h2>
+
+<p>This is the most useful feature of the project. Given a connection string and a JSON schema list, the site will automagically wire up a REST back-end for each data type in the list.</p>
+
+<h2>
+<a id="dynamic-angular-front-end-generation" class="anchor" href="#dynamic-angular-front-end-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamic Angular front-end generation</h2>
+
+<p>Using the same schema.json file as the API factory, the front end produces an Angular CRUD SPA for each data type.</p>
+
+<h2>
+<a id="coffeescript-and-stylus-bundling" class="anchor" href="#coffeescript-and-stylus-bundling" aria-hidden="true"><span class="octicon octicon-link"></span></a>CoffeeScript and Stylus bundling</h2>
+
+<p>All server- and client-side scripts are written in CoffeeScript. All stylesheets are written in Stylus. In production mode, client-side (and possibly server-side) code will be precompiled, bundled together, and minified. In dev mode, client js/css is rendered on the fly.</p>
+
+<h1>
+<a id="topics-for-exploration" class="anchor" href="#topics-for-exploration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Topics for exploration</h1>
+
+<p>I'll be experimenting with implementation, code organization, design patterns, and best practices in various areas of Node development.</p>
 
 <ul>
 <li>REST API</li>
@@ -40,11 +62,11 @@ code organization, design patterns, and best practices in various areas of Node 
 <li>SASS, LESS, and/or Stylus</li>
 <li>Authentication</li>
 <li>Code generation (generate API, client, and templates according to schema)</li>
+<li>Angular model validation</li>
 <li>Node development in CoffeeScript 
 
 <ul>
-<li>Server-side, with and without precompilation</li>
-<li>Client-side, rendering as JS on the fly</li>
+<li>Rendering CoffeeScript assets as JS</li>
 <li>Performance when not precompiled</li>
 </ul>
 </li>
@@ -73,8 +95,6 @@ code organization, design patterns, and best practices in various areas of Node 
 </li>
 </ul>
 
-<p>Note that this is an experimental project, and very much a work in progress. It's getting refactored, reorganized, and improved. <strong>Comments, suggestions, and pull requests are welcome.</strong></p>
-
 <h1>
 <a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h1>
 
@@ -97,7 +117,8 @@ npm install
 }
 </code></pre>
 </li>
-<li>Examine the "known issues" section below.</li>
+<li>Modify <code>schema.json</code> to reflect your data structure.</li>
+<li>Take a look at the "known issues" section below.</li>
 </ol>
 
 <h1>
@@ -116,11 +137,14 @@ npm install
 <h1>
 <a id="next-steps" class="anchor" href="#next-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h1>
 
-<ol>
-<li>Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.</li>
-<li>Automate installation.</li>
-<li>Unit testing.</li>
-</ol>
+<ul>
+<li>[x] Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.</li>
+<li>[x] Dynamic Jade templates</li>
+<li>[ ] Explore Bower and Browserify</li>
+<li>[ ] Automate installation</li>
+<li>[ ] Unit testing</li>
+<li>[ ] Form validation</li>
+</ul>
         </section>
 
         <aside id="sidebar">
