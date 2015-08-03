@@ -19,7 +19,7 @@ I'll be experimenting with implementation, code organization, design patterns, a
 - Authentication
 - Code generation (generate API, client, and templates according to schema)
 - Angular model validation
-- Angular routing with UI-Router
+- AngularUI Router routing engine
 - Node development in CoffeeScript 
   - Rendering CoffeeScript assets as JS
   - Performance when not precompiled
