@@ -3,7 +3,7 @@ This is a playground project to explore Node.js and the MEAN stack. It's an expe
 
 # Features
 ## Dynamic REST API generation
-This is the most useful feature of the project. Given a connection string and a JSON schema description, the site will automagically wire up a REST API for each data type in the schema.
+This is the most useful feature of the project. Given a MongoDB connection string and a JSON map of your data structure, the site will automagically wire up a REST API for each data type in the schema.
 
 ## Dynamic Angular front-end generation
 Using the same schema.json file as the API factory, the front end produces an Angular CRUD SPA for each data type.
@@ -19,6 +19,7 @@ I'll be experimenting with implementation, code organization, design patterns, a
 - Authentication
 - Code generation (generate API, client, and templates according to schema)
 - Angular model validation
+- Angular UI-Router routing engine
 - Node development in CoffeeScript 
   - Rendering CoffeeScript assets as JS
   - Performance when not precompiled
