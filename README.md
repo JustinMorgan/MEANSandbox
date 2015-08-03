@@ -57,8 +57,8 @@ I'll be experimenting with implementation, code organization, design patterns, a
 
 # Known issues
 1. ~~BundleUp is broken in Express 4.0.0, see my pull request on the BundleUp project: https://github.com/Cowboy-coder/bundle-up/pull/40.~~ **RESOLVED: Now using `connect-assets` for asset management.**
-2. ~~Poor support for rendering SASS on the fly.~~ **RESOLVED: Now using Stylus instead, with much better results.**
-3. Production mode may require more configuration, especially for `connect-assets`.
+2. ~~Poor support for rendering SASS on the fly.~~ **RESOLVED: Now using Stylus instead of SASS with much better results.**
+3. I haven't done much testing of intial setup and config in production mode. It may require more initial configuration, especially for `connect-assets`.
 
 #Next steps
 - [x] Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.
