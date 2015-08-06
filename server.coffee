@@ -3,7 +3,7 @@ bodyParser = require "body-parser"
 express = require "express"
 app = express()
 
-config = require "./config"
+config = require "./app-config"
 app.set "env", config.env
 app.set 'view engine', 'jade'
 app.set 'views', './views'
