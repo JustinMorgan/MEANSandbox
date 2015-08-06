@@ -14,6 +14,7 @@ All server- and client-side scripts are written in CoffeeScript. All stylesheets
 # Topics for exploration
 I'll be experimenting with implementation, code organization, design patterns, and best practices in various areas of Node development.
 - REST API
+  - Dynamically-generated API hooks
 - Jade view templates
 - SASS, LESS, and/or Stylus
 - Authentication
@@ -30,9 +31,9 @@ I'll be experimenting with implementation, code organization, design patterns, a
   - Angular unit tests
   - Automated UI tests
 - Automation and package management
-  - Building 
-  - Installing 
-  - Client-side dependency management
+  - Automated build steps 
+  - Automated setup 
+  - Dependency management, both server-side and client-side
   - Bower, Yeoman, Grunt, Browserify, etc.
 
 # Setup
