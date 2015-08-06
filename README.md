@@ -70,8 +70,8 @@ I'll be experimenting with implementation, code organization, design patterns, a
 3. I haven't done much testing of intial setup and config in production mode. It may require more initial configuration, especially for `connect-assets`.
 
 #Next steps
-- [x] Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.
-- [x] Dynamic Jade templates
+- [x] Dynamically generate the Angular front end to match the database schema. I'm already doing this on the back end with dynamic REST APIs.
+- [x] Jade templates that also bind dynamically to the schema.
 - [x] Bower
 - [ ] Browserify
 - [ ] Guided installation, most likely with Yeoman
