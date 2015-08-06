@@ -50,7 +50,7 @@ I'll be experimenting with implementation, code organization, design patterns, a
     ```
     {
         "env": "development",
-        "mongoUrl": "mongodb://myUser:myPassword@myMongoServerUrl/myDatabase"
+        "mongoUrl": "mongodb://[my-user]:[my-password]@[my-mongo-server-url]/[my-database]"
     }
     ```
    Whatever you set for `env` will be passed to Express with an `app.set("env", config.env)` call.
