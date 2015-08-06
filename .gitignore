@@ -1,4 +1,6 @@
-config.json
+app-config.json
 node_modules/
 .c9/
-public/stylesheets/
+public/css/_bower.css
+public/js/_bower.js
+bower_components/

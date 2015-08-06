@@ -1,0 +1,20 @@
+{
+  "name": "mean-sandbox",
+  "version": "0.1.0",
+  "description": "Playground for exploring the MEAN stack. Also a perfectly good CRUD tool for MongoDB.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "app-config.json",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "~1.4.3",
+    "angular-ui-router": "~0.2.15",
+    "angular-ui": "~0.4.0",
+    "angular": "~1.4.3"
+  }
+}

@@ -19,7 +19,7 @@ I'll be experimenting with implementation, code organization, design patterns, a
 - Authentication
 - Code generation (generate API, client, and templates according to schema)
 - Angular model validation
-- AngularUI Router routing engine
+- AngularUI's UI-Router state engine
 - Node development in CoffeeScript 
   - Rendering CoffeeScript assets as JS
   - Performance when not precompiled
@@ -36,24 +36,33 @@ I'll be experimenting with implementation, code organization, design patterns, a
   - Bower, Yeoman, Grunt, Browserify, etc.
 
 # Setup
-**Note: Not tested recently; beware of missing dependencies.** This will be more automated soon.
+**Note: This is a living project. Watch out for missing steps or dependencies.** 
 
-1. Pull the Git repo onto your filesystem and run the following:
+1. Pull down the Git repo.
+2. Install Bower and CoffeeScript if you haven't yet:
 
     ```
     npm install -g coffee-script
-    npm install
+    npm install -g bower-cli
     ```
-2. Create `config.json` in the root folder. It should look something like this:
+3. Create `app-config.json` in the root folder. It should look something like this:
 
     ```
     {
-        "env": <"development" or "production">,
-        "mongoUrl": "mongodb://<user>:<password>@<server-url>/<database>"
+        "env": "development",
+        "mongoUrl": "mongodb://myUser:myPassword@myMongoServerUrl/myDatabase"
     }
     ```
-3. Modify `schema.json` to reflect your data structure.
-4. Type `coffee server.coffee` to run the app.
+   Whatever you set for `env` will be passed to Express with an `app.set("env", config.env)` call.
+4. Modify `schema.json` to reflect the data structure in your Mongo store.
+5. Use NPM, Bower, and Grunt to pull in all the dependencies:
+
+    ```
+    npm install
+    bower install
+    grunt
+    ```
+6. Run `coffee server.coffee`.
 
 # Known issues
 1. ~~BundleUp is broken in Express 4.0.0, see my pull request on the BundleUp project: https://github.com/Cowboy-coder/bundle-up/pull/40.~~ **RESOLVED: Now using `connect-assets` for asset management.**
@@ -63,7 +72,8 @@ I'll be experimenting with implementation, code organization, design patterns, a
 #Next steps
 - [x] Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.
 - [x] Dynamic Jade templates
-- [ ] Explore Bower and Browserify
-- [ ] Automate installation
+- [x] Bower
+- [ ] Browserify
+- [ ] Guided installation, most likely with Yeoman
 - [ ] Unit testing
 - [ ] Form validation
