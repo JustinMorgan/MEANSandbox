@@ -44,7 +44,7 @@ I'll be experimenting with implementation, code organization, design patterns, a
 
     ```
     npm install -g coffee-script
-    npm install -g bower-cli
+    npm install -g bower
     ```
 3. Create `app-config.json` in the root folder. It should look something like this:
 
