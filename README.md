@@ -1,5 +1,5 @@
 # MeanSandbox
-This is a playground project to explore Node.js and the MEAN stack. It's an experimental project, and very much a work in progress. **Comments, suggestions, and pull requests welcome.**
+This is a playground project to explore Node.js and the MEAN stack. It's an experimental project, and very much a work in progress. **Comments, suggestions, and pull requests are welcome.**
 
 # Features
 ## Dynamic REST API generation
