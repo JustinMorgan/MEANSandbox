@@ -1,26 +1,24 @@
-# MeanSandbox
-This is a playground project to explore Node.js and the MEAN stack. It's an experimental project, and very much a work in progress. **Comments, suggestions, and pull requests are welcome.**
+# MEAN-Sandbox
+This is a playground project to explore Node.js and the MEAN (MongoDB, Express, Angular, and Node) stack. It's an experimental project, and very much a work in progress. **Comments, suggestions, and pull requests welcome.**
 
-# Features
-## Dynamic REST API generation
-This is the most useful feature of the project. Given a MongoDB connection string and a JSON map of your data structure, the site will automagically wire up a REST API for each data type in the schema.
+#Features
+##Dynamic REST API generation
+This is the most useful feature of the project. Given a connection string and a JSON schema list, the site will automagically wire up a REST back-end for each data type in the list.
 
-## Dynamic Angular front-end generation
+##Dynamic Angular front-end generation
 Using the same schema.json file as the API factory, the front end produces an Angular CRUD SPA for each data type.
 
-## CoffeeScript and Stylus bundling
+##CoffeeScript and Stylus bundling
 All server- and client-side scripts are written in CoffeeScript. All stylesheets are written in Stylus. In production mode, client-side (and possibly server-side) code will be precompiled, bundled together, and minified. In dev mode, client js/css is rendered on the fly.
 
-# Topics for exploration
+#Topics for exploration
 I'll be experimenting with implementation, code organization, design patterns, and best practices in various areas of Node development.
 - REST API
-  - Dynamically-generated API hooks
 - Jade view templates
 - SASS, LESS, and/or Stylus
 - Authentication
 - Code generation (generate API, client, and templates according to schema)
 - Angular model validation
-- AngularUI's UI-Router state engine
 - Node development in CoffeeScript 
   - Rendering CoffeeScript assets as JS
   - Performance when not precompiled
@@ -31,50 +29,40 @@ I'll be experimenting with implementation, code organization, design patterns, a
   - Angular unit tests
   - Automated UI tests
 - Automation and package management
-  - Automated build steps 
-  - Automated setup 
-  - Dependency management, both server-side and client-side
+  - Building 
+  - Installing 
+  - Client-side dependency management
   - Bower, Yeoman, Grunt, Browserify, etc.
 
-# Setup
-**Note: This is a living project. Watch out for missing steps or dependencies.** 
+#Setup
+**Note: Not tested recently; beware of missing dependencies.** This will be more automated soon.
 
-1. Pull down the Git repo.
-2. Install Bower and CoffeeScript if you haven't yet:
+1. Pull the repo onto your filesystem and run the following:
 
     ```
     npm install -g coffee-script
-    npm install -g bower
+    npm install
     ```
-3. Create `app-config.json` in the root folder. It should look something like this:
+2. Create `config.json` in the root folder. It should look something like this:
 
     ```
     {
-        "env": "development",
-        "mongoUrl": "mongodb://[my-user]:[my-password]@[my-mongo-server-url]/[my-database]"
+        "env": <"development" or "production">,
+        "mongoUrl": "mongodb://<user>:<password>@<server-url>/<database>"
     }
     ```
-   Whatever you set for `env` will be passed to Express with an `app.set("env", config.env)` call.
-4. Modify `schema.json` to reflect the data structure in your Mongo store.
-5. Use NPM, Bower, and Grunt to pull in all the dependencies:
+3. Modify `schema.json` to reflect your data structure.
+4. Take a look at the "known issues" section below.
 
-    ```
-    npm install
-    bower install
-    grunt
-    ```
-6. Run `coffee server.coffee`.
-
-# Known issues
+#Known issues
 1. ~~BundleUp is broken in Express 4.0.0, see my pull request on the BundleUp project: https://github.com/Cowboy-coder/bundle-up/pull/40.~~ **RESOLVED: Now using `connect-assets` for asset management.**
-2. ~~Poor support for rendering SASS on the fly.~~ **RESOLVED: Now using Stylus instead of SASS with much better results.**
-3. I haven't done much testing of intial setup and config in production mode. It may require more initial configuration, especially for `connect-assets`.
+2. ~~Poor support for rendering SASS on the fly.~~ **RESOLVED: Now using Stylus instead, with much better results.**
+3. Production mode may require more configuration, especially for `connect-assets`.
 
 #Next steps
-- [x] Dynamically generate the Angular front end to match the database schema. I'm already doing this on the back end with dynamic REST APIs.
-- [x] Jade templates that also bind dynamically to the schema.
-- [x] Bower
-- [ ] Browserify
-- [ ] Guided installation, most likely with Yeoman
+- [x] Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.
+- [x] Dynamic Jade templates
+- [ ] Explore Bower and Browserify
+- [ ] Automate installation
 - [ ] Unit testing
 - [ ] Form validation
