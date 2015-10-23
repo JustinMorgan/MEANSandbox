@@ -3,10 +3,10 @@ This is a playground project to explore Node.js and the MEAN (MongoDB, Express, 
 
 #Features
 ##Dynamic REST API generation
-This is the most useful feature of the project. Given a connection string and a JSON schema description, the site will automagically wire up a REST API for CRUD operations on each datatype in the schema.
+This is the most useful feature of the project. Given a connection string and a JSON schema list, the site will automagically wire up a REST back-end for each data type in the list.
 
 ##Dynamic Angular front-end generation
-Using the same schema.json file that created the back end, the front end produces an Angular SPA with a simple list/view/edit/add page for each datatype in the schema.
+Using the same schema.json file as the API factory, the front end produces an Angular CRUD SPA for each data type.
 
 ##CoffeeScript and Stylus bundling
 All server- and client-side scripts are written in CoffeeScript. All stylesheets are written in Stylus. In production mode, client-side (and possibly server-side) code will be precompiled, bundled together, and minified. In dev mode, client js/css is rendered on the fly.
@@ -60,9 +60,9 @@ I'll be experimenting with implementation, code organization, design patterns, a
 3. Production mode may require more configuration, especially for `connect-assets`.
 
 #Next steps
-- [x] Dynamically generate multiple Angular front-ends from a list of schemas. I'm already doing this on the back end with dynamic REST APIs.
-- [x] Dynamic Jade templates
+- [x] Dynamically generate multiple AngularJS front-ends from a schema description **(done)**
+- [x] Dynamically bind Jade templates to the schema **(done, but discarded in favor of Angular)**
 - [ ] Explore Bower and Browserify
 - [ ] Automate installation
 - [ ] Unit testing
-- [ ] Form validation
+- [ ] Input validation
