@@ -3,10 +3,10 @@ This is a playground project to explore Node.js and the MEAN (MongoDB, Express, 
 
 #Features
 ##Dynamic REST API generation
-This is the most useful feature of the project. Given a connection string and a JSON schema list, the site will automagically wire up a REST back-end for each data type in the list.
+This is the most useful feature of the project. Given a connection string and a JSON schema description, the site will automagically wire up a REST API for CRUD operations on each datatype in the schema.
 
 ##Dynamic Angular front-end generation
-Using the same schema.json file as the API factory, the front end produces an Angular CRUD SPA for each data type.
+Using the same schema.json file that created the back end, the front end produces an Angular SPA with a simple list/view/edit/add page for each datatype in the schema.
 
 ##CoffeeScript and Stylus bundling
 All server- and client-side scripts are written in CoffeeScript. All stylesheets are written in Stylus. In production mode, client-side (and possibly server-side) code will be precompiled, bundled together, and minified. In dev mode, client js/css is rendered on the fly.
